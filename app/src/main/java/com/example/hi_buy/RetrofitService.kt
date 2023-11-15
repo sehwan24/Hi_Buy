@@ -15,7 +15,7 @@ interface RetrofitService {
 
     //헤더 값들도 안바뀌는 글자이기 때문에 고정하기
     @Headers("X-Naver-Client-Id: RNzbka6EXecpTVBbXdWd","X-Naver-Client-Secret: D8UyvylyfJ")  //gitignore todo
-    @GET("/v1/search/shop.json?display=100")
+    @GET("/v1/search/shop.json?display=20")   //20개씩
     fun searchDataByJson(@Query("query") query:String): Call<NaverSearchApiResponse>
 
 

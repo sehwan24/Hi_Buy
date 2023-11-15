@@ -55,11 +55,14 @@ class MainActivity : AppCompatActivity() {
                 val naverResponse: NaverSearchApiResponse? = response.body()
 
                 println("naverResponse = ${naverResponse}")
+                println(naverResponse!!.items[0])
+                println(naverResponse!!.items[1].title)
 
                 //확인용 토스트
                 Toast.makeText(this@MainActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
 
-                //응답받은 객체의 items 리스트를 리사이클러뷰에 보이기
+
+                //응답받은 객체의 items s리스트를 리사이클러뷰에 보이기
                 /*binding.recycler.adapter =
                     MyAdapter(this@MainActivity, naverResponse!!.items) //nullable*/
                 //setAdapter 하면 그게 Notify임 따로 안해도 된다
