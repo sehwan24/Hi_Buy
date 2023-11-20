@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/search_item"
+            android:layout_width="643dp"
+            android:layout_height="match_parent"
+            android:hint="브랜드명, 제품명을 입력해 주세요"
+            android:textSize="23dp" />
+        
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/white"
+            android:layout_height="match_parent"
+            android:src="@drawable/search_btn_img"
+            android:scaleType="fitXY" />
+
+        <ImageButton
+            android:id="@+id/my_shop"
+            android:scaleType="fitXY"
+            android:backgroundTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/my_shop_img" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageButton
+            android:id="@+id/ad1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY" />
+
+    </LinearLayout>
+
+</LinearLayout>
