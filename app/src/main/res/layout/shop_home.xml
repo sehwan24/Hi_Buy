@@ -12,22 +12,22 @@
         >
 
         <EditText
-            android:id="@+id/search_item"
-            android:layout_width="643dp"
+            android:id="@+id/search_item_et"
+            android:layout_width="265dp"
             android:layout_height="match_parent"
             android:hint="브랜드명, 제품명을 입력해 주세요"
-            android:textSize="23dp" />
-        
+            android:textSize="15dp" />
+
         <ImageButton
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
-            android:backgroundTint="@color/white"
             android:layout_height="match_parent"
-            android:src="@drawable/search_btn_img"
-            android:scaleType="fitXY" />
+            android:backgroundTint="@color/white"
+            android:scaleType="fitXY"
+            android:src="@drawable/search_btn_img" />
 
         <ImageButton
-            android:id="@+id/my_shop"
+            android:id="@+id/my_shop_btn"
             android:scaleType="fitXY"
             android:backgroundTint="@color/white"
             android:layout_width="wrap_content"
@@ -42,10 +42,155 @@
         >
 
         <ImageButton
-            android:id="@+id/ad1"
+            android:id="@+id/ad1_btn"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             android:scaleType="fitXY" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        >
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommend_btn"
+            android:text="맞춤 추천"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/white"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="5"
+            android:rowCount="1"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/rec1_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <TextView
+                    android:id="@+id/rec1_tv1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/rec1_tv2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/rec2_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <TextView
+                    android:id="@+id/rec2_tv1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/rec2_tv2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/rec3_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <TextView
+                    android:id="@+id/rec3_tv1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/rec3_tv2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/rec4_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <TextView
+                    android:id="@+id/rec4_tv1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/rec4_tv2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/rec5_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp" />
+
+                <TextView
+                    android:id="@+id/rec5_tv1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/rec5_tv2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
 
     </LinearLayout>
 
