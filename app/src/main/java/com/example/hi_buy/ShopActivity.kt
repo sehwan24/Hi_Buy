@@ -37,6 +37,22 @@ class ShopActivity : AppCompatActivity() {
     lateinit var rec5_btn : ImageButton
     lateinit var rec5_tv1 : TextView
     lateinit var rec5_tv2 : TextView
+    lateinit var vitamin_btn : Button
+    lateinit var vit1_btn : ImageButton
+    lateinit var vit1_tv1 : TextView
+    lateinit var vit1_tv2 : TextView
+    lateinit var vit2_btn : ImageButton
+    lateinit var vit2_tv1 : TextView
+    lateinit var vit2_tv2 : TextView
+    lateinit var vit3_btn : ImageButton
+    lateinit var vit3_tv1 : TextView
+    lateinit var vit3_tv2 : TextView
+    lateinit var vit4_btn : ImageButton
+    lateinit var vit4_tv1 : TextView
+    lateinit var vit4_tv2 : TextView
+    lateinit var vit5_btn : ImageButton
+    lateinit var vit5_tv1 : TextView
+    lateinit var vit5_tv2 : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,12 +80,31 @@ class ShopActivity : AppCompatActivity() {
         rec5_tv1 = findViewById<TextView>(R.id.rec5_tv1)
         rec5_tv2 = findViewById<TextView>(R.id.rec5_tv2)
 
+        vitamin_btn = findViewById<Button>(R.id.vitamin_btn)
+        vit1_btn = findViewById<ImageButton>(R.id.vit1_btn)
+        vit1_tv1 = findViewById<TextView>(R.id.vit1_tv1)
+        vit1_tv2 = findViewById<TextView>(R.id.vit1_tv2)
+        vit2_btn = findViewById<ImageButton>(R.id.vit2_btn)
+        vit2_tv1 = findViewById<TextView>(R.id.vit2_tv1)
+        vit2_tv2 = findViewById<TextView>(R.id.vit2_tv2)
+        vit3_btn = findViewById<ImageButton>(R.id.vit3_btn)
+        vit3_tv1 = findViewById<TextView>(R.id.vit3_tv1)
+        vit3_tv2 = findViewById<TextView>(R.id.vit3_tv2)
+        vit4_btn = findViewById<ImageButton>(R.id.vit4_btn)
+        vit4_tv1 = findViewById<TextView>(R.id.vit4_tv1)
+        vit4_tv2 = findViewById<TextView>(R.id.vit4_tv2)
+        vit5_btn = findViewById<ImageButton>(R.id.vit5_btn)
+        vit5_tv1 = findViewById<TextView>(R.id.vit5_tv1)
+        vit5_tv2 = findViewById<TextView>(R.id.vit5_tv2)
+
         searchData()
 
 
 
 
     }
+
+
 
     private fun searchData() {
 
@@ -88,6 +123,9 @@ class ShopActivity : AppCompatActivity() {
         //검색
         val call: Call<NaverSearchApiResponse> =
             retrofitService.searchDataByJson("건강보조식품")
+
+        val call2: Call<NaverSearchApiResponse> =
+            retrofitService.searchDataByJson("멀티비타민")
 
         call.enqueue(object : Callback<NaverSearchApiResponse> {
             override fun onResponse(
@@ -117,12 +155,60 @@ class ShopActivity : AppCompatActivity() {
                 rec5_tv1.setText(naverResponse!!.items[4].title)
                 rec5_tv2.setText(naverResponse!!.items[4].lprice)
 
-                println("naverResponse = ${naverResponse}")
-                println(naverResponse!!.items[0])
-                println(naverResponse!!.items[1].title)
+                //println("naverResponse = ${naverResponse}")
+                //println(naverResponse!!.items[0])
+                //println(naverResponse!!.items[1].title)
 
                 //확인용 토스트
-                Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
+
+
+                //응답받은 객체의 items s리스트를 리사이클러뷰에 보이기
+                /*binding.recycler.adapter =
+                    MyAdapter(this@MainActivity, naverResponse!!.items) //nullable*/
+                //setAdapter 하면 그게 Notify임 따로 안해도 된다
+            }
+
+            override fun onFailure(call: Call<NaverSearchApiResponse>, t: Throwable) {
+                Toast.makeText(this@ShopActivity, "에러 : " + t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+        call2.enqueue(object : Callback<NaverSearchApiResponse> {
+            override fun onResponse(
+                call: Call<NaverSearchApiResponse>,
+                response: Response<NaverSearchApiResponse>
+            ) {
+                val naverResponse: NaverSearchApiResponse? = response.body()
+
+                //rec1_btn.setImageResource(naverResponse!!.items[0].link)
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[0].image).into(vit1_btn)
+                vit1_tv1.setText(naverResponse!!.items[0].title)
+                vit1_tv2.setText(naverResponse!!.items[0].lprice)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[1].image).into(vit2_btn)
+                vit2_tv1.setText(naverResponse!!.items[1].title)
+                vit2_tv2.setText(naverResponse!!.items[1].lprice)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[2].image).into(vit3_btn)
+                vit3_tv1.setText(naverResponse!!.items[2].title)
+                vit3_tv2.setText(naverResponse!!.items[2].lprice)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[3].image).into(vit4_btn)
+                vit4_tv1.setText(naverResponse!!.items[3].title)
+                vit4_tv2.setText(naverResponse!!.items[3].lprice)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[4].image).into(vit5_btn)
+                vit5_tv1.setText(naverResponse!!.items[4].title)
+                vit5_tv2.setText(naverResponse!!.items[4].lprice)
+
+                //println("naverResponse = ${naverResponse}")
+                //println(naverResponse!!.items[0])
+                //println(naverResponse!!.items[1].title)
+
+                //확인용 토스트
+                //Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
 
 
                 //응답받은 객체의 items s리스트를 리사이클러뷰에 보이기
