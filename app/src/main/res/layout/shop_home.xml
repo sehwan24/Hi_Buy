@@ -13,7 +13,7 @@
 
         <EditText
             android:id="@+id/search_item_et"
-            android:layout_width="265dp"
+            android:layout_width="276dp"
             android:layout_height="match_parent"
             android:hint="브랜드명, 제품명을 입력해 주세요"
             android:textSize="15dp" />
@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
             android:scaleType="fitXY"
-            android:src="@drawable/search_btn_img" />
+            android:src="@drawable/search_icon" />
 
         <ImageButton
             android:id="@+id/my_shop_btn"
@@ -32,7 +32,7 @@
             android:backgroundTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/my_shop_img" />
+            android:src="@drawable/cart_icon" />
     </LinearLayout>
 
     <ScrollView
