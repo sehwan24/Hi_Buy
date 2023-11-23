@@ -20,6 +20,9 @@ class ShopActivity : AppCompatActivity() {
     lateinit var search_item_et : EditText
     lateinit var search_btn : ImageButton
     lateinit var my_shop_btn : ImageButton
+    lateinit var search_item_et2 : EditText
+    lateinit var search_btn2 : ImageButton
+    lateinit var my_shop_btn2 : ImageButton
     lateinit var ad1_btn : ImageButton
     lateinit var recommend_btn : Button
     lateinit var rec1_btn : ImageButton
@@ -53,6 +56,30 @@ class ShopActivity : AppCompatActivity() {
     lateinit var vit5_btn : ImageButton
     lateinit var vit5_tv1 : TextView
     lateinit var vit5_tv2 : TextView
+    lateinit var res1_btn : ImageButton
+    lateinit var res1_tv1 : TextView
+    lateinit var res1_tv2 : TextView
+    lateinit var res1_tv3 : TextView
+    lateinit var res2_btn : ImageButton
+    lateinit var res2_tv1 : TextView
+    lateinit var res2_tv2 : TextView
+    lateinit var res2_tv3 : TextView
+    lateinit var res3_btn : ImageButton
+    lateinit var res3_tv1 : TextView
+    lateinit var res3_tv2 : TextView
+    lateinit var res3_tv3 : TextView
+    lateinit var res4_btn : ImageButton
+    lateinit var res4_tv1 : TextView
+    lateinit var res4_tv2 : TextView
+    lateinit var res4_tv3 : TextView
+    lateinit var res5_btn : ImageButton
+    lateinit var res5_tv1 : TextView
+    lateinit var res5_tv2 : TextView
+    lateinit var res5_tv3 : TextView
+    lateinit var res6_btn : ImageButton
+    lateinit var res6_tv1 : TextView
+    lateinit var res6_tv2 : TextView
+    lateinit var res6_tv3 : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,9 +126,121 @@ class ShopActivity : AppCompatActivity() {
 
         searchData()
 
+        search_btn.setOnClickListener {
+            searchData(search_item_et.text.toString())
+            setContentView(R.layout.search_result)
+
+            search_item_et2 = findViewById<EditText>(R.id.search_item_et2)
+            search_btn2 = findViewById<ImageButton>(R.id.search_btn2)
+            my_shop_btn2 = findViewById<ImageButton>(R.id.my_shop_btn2)
+            res1_btn = findViewById<ImageButton>(R.id.res1_btn)
+            res1_tv1 = findViewById<TextView>(R.id.res1_tv1)
+            res1_tv2 = findViewById<TextView>(R.id.res1_tv2)
+            res1_tv3 = findViewById<TextView>(R.id.res1_tv3)
+            res2_btn = findViewById<ImageButton>(R.id.res2_btn)
+            res2_tv1 = findViewById<TextView>(R.id.res2_tv1)
+            res2_tv2 = findViewById<TextView>(R.id.res2_tv2)
+            res2_tv3 = findViewById<TextView>(R.id.res2_tv3)
+            res3_btn = findViewById<ImageButton>(R.id.res3_btn)
+            res3_tv1 = findViewById<TextView>(R.id.res3_tv1)
+            res3_tv2 = findViewById<TextView>(R.id.res3_tv2)
+            res3_tv3 = findViewById<TextView>(R.id.res3_tv3)
+            res4_btn = findViewById<ImageButton>(R.id.res4_btn)
+            res4_tv1 = findViewById<TextView>(R.id.res4_tv1)
+            res4_tv2 = findViewById<TextView>(R.id.res4_tv2)
+            res4_tv3 = findViewById<TextView>(R.id.res4_tv3)
+            res5_btn = findViewById<ImageButton>(R.id.res5_btn)
+            res5_tv1 = findViewById<TextView>(R.id.res5_tv1)
+            res5_tv2 = findViewById<TextView>(R.id.res5_tv2)
+            res5_tv3 = findViewById<TextView>(R.id.res5_tv3)
+            res6_btn = findViewById<ImageButton>(R.id.res6_btn)
+            res6_tv1 = findViewById<TextView>(R.id.res6_tv1)
+            res6_tv2 = findViewById<TextView>(R.id.res6_tv2)
+            res6_tv3 = findViewById<TextView>(R.id.res6_tv3)
+
+            search_btn2.setOnClickListener {
+                println(search_item_et2.text.toString())
+                searchData(search_item_et2.text.toString())
+            }
+        }
 
 
 
+
+    }
+
+    private fun searchData(str: String) {
+
+        //retrofit build
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://openapi.naver.com")
+            .addConverterFactory(ScalarsConverterFactory.create()) //스칼라가 먼저여야함
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+
+        //RetrofitService 객체 생성
+        val retrofitService: RetrofitService = retrofit.create(RetrofitService::class.java)
+
+
+        //검색
+        val call: Call<NaverSearchApiResponse> =
+            retrofitService.searchDataByJson(str)
+
+
+        call.enqueue(object : Callback<NaverSearchApiResponse> {
+            override fun onResponse(
+                call: Call<NaverSearchApiResponse>,
+                response: Response<NaverSearchApiResponse>
+            ) {
+                val naverResponse: NaverSearchApiResponse? = response.body()
+
+                //rec1_btn.setImageResource(naverResponse!!.items[0].link)
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[0].image).into(res1_btn)
+                res1_tv1.setText(naverResponse!!.items[0].title)
+                res1_tv2.setText(naverResponse!!.items[0].lprice)
+                res1_tv3.setText(naverResponse!!.items[0].mallName)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[1].image).into(res2_btn)
+                res2_tv1.setText(naverResponse!!.items[1].title)
+                res2_tv2.setText(naverResponse!!.items[1].lprice)
+                res2_tv3.setText(naverResponse!!.items[1].mallName)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[2].image).into(res3_btn)
+                res3_tv1.setText(naverResponse!!.items[2].title)
+                res3_tv2.setText(naverResponse!!.items[2].lprice)
+                res3_tv3.setText(naverResponse!!.items[2].mallName)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[3].image).into(res4_btn)
+                res4_tv1.setText(naverResponse!!.items[3].title)
+                res4_tv2.setText(naverResponse!!.items[3].lprice)
+                res4_tv3.setText(naverResponse!!.items[3].mallName)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[4].image).into(res5_btn)
+                res5_tv1.setText(naverResponse!!.items[4].title)
+                res5_tv2.setText(naverResponse!!.items[4].lprice)
+                res5_tv3.setText(naverResponse!!.items[4].mallName)
+
+                Glide.with(this@ShopActivity).load(naverResponse!!.items[4].image).into(res6_btn)
+                res6_tv1.setText(naverResponse!!.items[4].title)
+                res6_tv2.setText(naverResponse!!.items[4].lprice)
+                res6_tv3.setText(naverResponse!!.items[4].mallName)
+
+                println("naverResponse = ${naverResponse}")
+                println(naverResponse!!.items[0])
+                println(naverResponse!!.items[1].title)
+
+                //확인용 토스트
+                //Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+            override fun onFailure(call: Call<NaverSearchApiResponse>, t: Throwable) {
+                Toast.makeText(this@ShopActivity, "에러 : " + t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
 
@@ -162,11 +301,6 @@ class ShopActivity : AppCompatActivity() {
                 //확인용 토스트
                 //Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
 
-
-                //응답받은 객체의 items s리스트를 리사이클러뷰에 보이기
-                /*binding.recycler.adapter =
-                    MyAdapter(this@MainActivity, naverResponse!!.items) //nullable*/
-                //setAdapter 하면 그게 Notify임 따로 안해도 된다
             }
 
             override fun onFailure(call: Call<NaverSearchApiResponse>, t: Throwable) {
@@ -210,11 +344,6 @@ class ShopActivity : AppCompatActivity() {
                 //확인용 토스트
                 //Toast.makeText(this@ShopActivity, "아이템 개수 : ${naverResponse?.items?.size}", Toast.LENGTH_SHORT).show()
 
-
-                //응답받은 객체의 items s리스트를 리사이클러뷰에 보이기
-                /*binding.recycler.adapter =
-                    MyAdapter(this@MainActivity, naverResponse!!.items) //nullable*/
-                //setAdapter 하면 그게 Notify임 따로 안해도 된다
             }
 
             override fun onFailure(call: Call<NaverSearchApiResponse>, t: Throwable) {
