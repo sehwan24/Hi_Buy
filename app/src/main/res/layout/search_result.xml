@@ -1,6 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/search_item_et2"
+            android:layout_width="276dp"
+            android:layout_height="match_parent"
+            android:hint="브랜드명, 제품명을 입력해 주세요"
+            android:textSize="15dp" />
+
+        <ImageButton
+            android:id="@+id/search_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitXY"
+            android:src="@drawable/search_icon" />
+
+        <ImageButton
+            android:id="@+id/my_shop_btn2"
+            android:scaleType="fitXY"
+            android:backgroundTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/cart_icon" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rowCount="10"
+                android:columnCount="2" >
+
+                <LinearLayout
+                    android:paddingRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res1_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res1_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res1_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res1_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res2_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res2_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res2_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res2_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res3_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res3_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res3_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res3_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res4_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res4_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res4_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res4_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res5_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res5_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res5_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res5_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/res6_btn"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+
+                    <TextView
+                        android:id="@+id/res6_tv1"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res6_tv2"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/res6_tv3"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+            </GridLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>
