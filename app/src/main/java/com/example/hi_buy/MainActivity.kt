@@ -1,5 +1,6 @@
 package com.example.hi_buy
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private var currentMonth = 0
     private var currentDay = 0
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -139,18 +141,10 @@ class MainActivity : AppCompatActivity() {
 
 
                 val dayNumber = DateUtils.getDayNumber(date)
-                if (dayNumber != null) {
-                    holder.itemView.findViewById<TextView>(R.id.tv_date_calendar_item).text = dayNumber
-                } else {
-                    // Handle the case where dayNumber is null
-                }
+                holder.itemView.findViewById<TextView>(R.id.tv_date_calendar_item).text = dayNumber
 
                 val day3LettersName = DateUtils.getDay3LettersName(date)
-                if (day3LettersName != null) {
-                    holder.itemView.findViewById<TextView>(R.id.tv_day_calendar_item).text = day3LettersName
-                } else {
-                    // Handle the case where dayNumber is null
-                }
+                holder.itemView.findViewById<TextView>(R.id.tv_day_calendar_item).text = day3LettersName
 
 
                 //holder.itemView.findViewById<TextView>(R.id.tv_date_calendar_item).text = DateUtils.getDayNumber(date)
@@ -165,6 +159,7 @@ class MainActivity : AppCompatActivity() {
         val myCalendarChangesObserver = object :
             CalendarChangesObserver {
             // you can override more methods, in this example we need only this one
+            @SuppressLint("SetTextI18n")
             override fun whenSelectionChanged(isSelected: Boolean, position: Int, date: Date) {
                 tvDate.text = "${DateUtils.getMonthName(date)}, ${DateUtils.getDayNumber(date)} "
                 tvDay.text = DateUtils.getDayName(date)
