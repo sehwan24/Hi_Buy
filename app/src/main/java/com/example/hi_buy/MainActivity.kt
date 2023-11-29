@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -24,12 +25,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.time.LocalDateTime
 import java.util.Calendar
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var btn1 : Button
+    lateinit var btn1 : ImageButton
     lateinit var tvDate : TextView
     lateinit var tvDay : TextView
     lateinit var btnLeft : Button
@@ -38,19 +40,22 @@ class MainActivity : AppCompatActivity() {
     lateinit var cl_calendar_item : LinearLayout
     lateinit var tv_date_calendar_item : TextView
     lateinit var tv_day_calendar_item : TextView
+    lateinit var month_tv : TextView
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
+    private var currentDay = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn1 = findViewById<Button>(R.id.btn1)
+        btn1 = findViewById<ImageButton>(R.id.btn1)
         main_single_row_calendar = findViewById(R.id.main_single_row_calendar)
         tvDate = findViewById(R.id.tvDate)
         tvDay = findViewById(R.id.tvDay)
         btnLeft = findViewById(R.id.btnLeft)
         btnRight = findViewById(R.id.btnRight)
+        month_tv = findViewById(R.id.month_tv)
         //cl_calendar_item = findViewById(R.id.cl_calendar_item)
         //tv_date_calendar_item = findViewById(R.id.tv_date_calendar_item)
 
@@ -65,6 +70,9 @@ class MainActivity : AppCompatActivity() {
         // set current date to calendar and current month to currentMonth variable
         calendar.time = Date()
         currentMonth = calendar[Calendar.MONTH]
+        currentDay = calendar[Calendar.DATE]
+
+        month_tv.setText((LocalDateTime.now().year).toString() +"년 " + (LocalDateTime.now().month.value).toString() + "월")
 
         // enable white status bar with black icons
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -86,22 +94,32 @@ class MainActivity : AppCompatActivity() {
                 val cal = Calendar.getInstance()
                 cal.time = date
 
+                println(isSelected)
+
                 // if item is selected we return this layout items
                 // in this example. monday, wednesday and friday will have special item views and other days
                 // will be using basic item view
                 return if (isSelected)
                     when (cal[Calendar.DAY_OF_WEEK]) {
                         Calendar.MONDAY -> R.layout.first_special_selected_calendar_item
-                        Calendar.WEDNESDAY -> R.layout.second_special_selected_calendar_item
-                        Calendar.FRIDAY -> R.layout.third_special_selected_calendar_item
+                        Calendar.TUESDAY -> R.layout.first_special_selected_calendar_item
+                        Calendar.WEDNESDAY -> R.layout.first_special_selected_calendar_item
+                        Calendar.THURSDAY -> R.layout.first_special_selected_calendar_item
+                        Calendar.FRIDAY -> R.layout.first_special_selected_calendar_item
+                        Calendar.SATURDAY -> R.layout.second_special_selected_calendar_item
+                        Calendar.SUNDAY -> R.layout.third_special_selected_calendar_item
                         else -> R.layout.selected_calendar_item
                     }
                 else
                 // here we return items which are not selected
                     when (cal[Calendar.DAY_OF_WEEK]) {
                         Calendar.MONDAY -> R.layout.first_special_calendar_item
-                        Calendar.WEDNESDAY -> R.layout.second_special_calendar_item
-                        Calendar.FRIDAY -> R.layout.third_special_calendar_item
+                        Calendar.TUESDAY -> R.layout.first_special_calendar_item
+                        Calendar.WEDNESDAY -> R.layout.first_special_calendar_item
+                        Calendar.THURSDAY -> R.layout.first_special_calendar_item
+                        Calendar.FRIDAY -> R.layout.first_special_calendar_item
+                        Calendar.SATURDAY -> R.layout.second_special_calendar_item
+                        Calendar.SUNDAY -> R.layout.third_special_calendar_item
                         else -> R.layout.calendar_item
                     }
 
@@ -128,8 +146,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 val day3LettersName = DateUtils.getDay3LettersName(date)
-                if (dayNumber != null) {
-                    holder.itemView.findViewById<TextView>(R.id.tv_day_calendar_item).text = dayNumber
+                if (day3LettersName != null) {
+                    holder.itemView.findViewById<TextView>(R.id.tv_day_calendar_item).text = day3LettersName
                 } else {
                     // Handle the case where dayNumber is null
                 }
@@ -164,8 +182,6 @@ class MainActivity : AppCompatActivity() {
                 cal.time = date
                 // in this example sunday and saturday can't be selected, others can
                 return when (cal[Calendar.DAY_OF_WEEK]) {
-                    Calendar.SATURDAY -> false
-                    Calendar.SUNDAY -> false
                     else -> true
                 }
             }
@@ -176,16 +192,22 @@ class MainActivity : AppCompatActivity() {
             calendarViewManager = myCalendarViewManager
             calendarChangesObserver = myCalendarChangesObserver
             calendarSelectionManager = mySelectionManager
+            //pastDaysCount = 90
+            //futureDaysCount = 90
+            //includeCurrentDate = true
             setDates(getFutureDatesOfCurrentMonth())
+            initialPositionIndex = currentDay
             init()
         }
 
         btnRight.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfNextMonth())
+            month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
         }
 
         btnLeft.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfPreviousMonth())
+            month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
         }
     }
 
