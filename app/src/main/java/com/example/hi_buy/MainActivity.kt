@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var btn1 : ImageButton
     lateinit var tvDate : TextView
     lateinit var tvDay : TextView
-    lateinit var btnLeft : Button
-    lateinit var btnRight : Button
+    lateinit var btnLeft : ImageButton
+    lateinit var btnRight : ImageButton
     lateinit var main_single_row_calendar : com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
     lateinit var cl_calendar_item : LinearLayout
     lateinit var tv_date_calendar_item : TextView
