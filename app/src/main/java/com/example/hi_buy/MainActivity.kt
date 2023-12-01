@@ -15,6 +15,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.michalsvec.singlerowcalendar.calendar.CalendarChangesObserver
 import com.michalsvec.singlerowcalendar.calendar.CalendarViewManager
 import com.michalsvec.singlerowcalendar.calendar.SingleRowCalendarAdapter
@@ -42,6 +44,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var tv_date_calendar_item : TextView
     lateinit var tv_day_calendar_item : TextView
     lateinit var month_tv : TextView
+    lateinit var item_tv1 : TextView
+    lateinit var item_tv2 : TextView
+    lateinit var time_tv1 : TextView
+    lateinit var time_tv2 : TextView
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
     private var currentDay = 0
@@ -58,10 +64,18 @@ class MainActivity : AppCompatActivity() {
         btnLeft = findViewById(R.id.btnLeft)
         btnRight = findViewById(R.id.btnRight)
         month_tv = findViewById(R.id.month_tv)
+        item_tv1 = findViewById(R.id.item_tv1)
+        item_tv2 = findViewById(R.id.item_tv2)
+        time_tv1 = findViewById(R.id.time_tv1)
+        time_tv2 = findViewById(R.id.time_tv2)
         //cl_calendar_item = findViewById(R.id.cl_calendar_item)
         //tv_date_calendar_item = findViewById(R.id.tv_date_calendar_item)
 
 
+        item_tv1.setText("")
+        item_tv2.setText("")
+        time_tv1.setText("")
+        time_tv2.setText("")
 
 
         btn1.setOnClickListener {
@@ -163,6 +177,10 @@ class MainActivity : AppCompatActivity() {
             override fun whenSelectionChanged(isSelected: Boolean, position: Int, date: Date) {
                 tvDate.text = "${DateUtils.getMonthName(date)}, ${DateUtils.getDayNumber(date)} "
                 tvDay.text = DateUtils.getDayName(date)
+                item_tv1.setText("item1")
+                item_tv2.setText("item2")
+                time_tv1.setText("time1")
+                time_tv2.setText("time2")
                 super.whenSelectionChanged(isSelected, position, date)
             }
 
