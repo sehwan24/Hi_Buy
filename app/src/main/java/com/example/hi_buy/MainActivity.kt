@@ -3,6 +3,7 @@ package com.example.hi_buy
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -48,6 +50,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var item_tv2 : TextView
     lateinit var time_tv1 : TextView
     lateinit var time_tv2 : TextView
+    lateinit var image : ImageView
+    lateinit var med1 : ImageButton
+    lateinit var setting_btn : ImageButton
+    lateinit var mail_btn : ImageButton
+    lateinit var med3 : ImageButton
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
     private var currentDay = 0
@@ -68,8 +75,14 @@ class MainActivity : AppCompatActivity() {
         item_tv2 = findViewById(R.id.item_tv2)
         time_tv1 = findViewById(R.id.time_tv1)
         time_tv2 = findViewById(R.id.time_tv2)
+        image = findViewById(R.id.image)
+        med1 = findViewById(R.id.med1)
+        med3 = findViewById(R.id.med3)
+        mail_btn = findViewById(R.id.mail_btn)
+        setting_btn = findViewById(R.id.setting_btn)
         //cl_calendar_item = findViewById(R.id.cl_calendar_item)
         //tv_date_calendar_item = findViewById(R.id.tv_date_calendar_item)
+
 
 
         item_tv1.setText("")
@@ -81,6 +94,19 @@ class MainActivity : AppCompatActivity() {
         btn1.setOnClickListener {
             val shop = Intent(this, ShopActivity::class.java)
             startActivity(shop)
+        }
+
+        med1.setOnClickListener {
+            med1.setImageResource(R.drawable.group_3)
+            image.setImageResource(R.drawable.character2)
+        }
+
+        med3.setOnClickListener {
+            med3.setImageResource(R.drawable.group_3)
+            image.setImageResource(R.drawable.character5)
+            setting_btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
+            mail_btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
+            btn1.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
         }
 
         // set current date to calendar and current month to currentMonth variable
@@ -181,6 +207,8 @@ class MainActivity : AppCompatActivity() {
                 item_tv2.setText("item2")
                 time_tv1.setText("time1")
                 time_tv2.setText("time2")
+                med1.visibility = View.VISIBLE
+                med3.visibility = View.VISIBLE
                 super.whenSelectionChanged(isSelected, position, date)
             }
 

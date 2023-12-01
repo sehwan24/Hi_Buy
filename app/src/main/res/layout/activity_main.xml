@@ -9,8 +9,15 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="380dp" >
 
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/character1"
+            android:layout_gravity="center"/>
 
 
 
@@ -31,7 +38,7 @@
 
             <ImageButton
                 android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/mail_btn"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/material_symbols_mail_outline"
@@ -49,10 +56,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="427dp"
-            android:background="@drawable/group_1168" />
+
 
     </FrameLayout>
     
@@ -180,6 +184,18 @@
                         android:id="@+id/time_tv1"
                         />
 
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/med1"
+                        android:src="@drawable/group_6"
+                        android:visibility="invisible"
+                        android:backgroundTint="@color/white"
+                        />
+
+
 
                 </LinearLayout>
 
@@ -211,6 +227,19 @@
                         android:textSize="20sp"
                         android:id="@+id/time_tv2"
                         />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/med3"
+                        android:src="@drawable/group_6"
+                        android:visibility="invisible"
+                        android:backgroundTint="@color/white"
+                        />
+
+
 
                 </LinearLayout>
 
