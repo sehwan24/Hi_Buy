@@ -31,7 +31,7 @@
 
             <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                    android:layout_height="wrap_content"
                 android:id="@+id/mail_btn"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/material_symbols_mail_outline"
@@ -153,27 +153,66 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="11111111111111111"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    />
+                    android:orientation="horizontal" >
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:id="@+id/item_tv1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:id="@+id/time_tv1"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:text="2222222222222222222"
-                    />
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:id="@+id/item_tv2"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:id="@+id/time_tv2"
+                        />
+
+                </LinearLayout>
 
 
             </LinearLayout>
