@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var setting_btn : ImageButton
     lateinit var mail_btn : ImageButton
     lateinit var med3 : ImageButton
+    lateinit var med2 : ImageButton
+    lateinit var plus_btn : ImageButton
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
     private var currentDay = 0
@@ -80,6 +82,8 @@ class MainActivity : AppCompatActivity() {
         med3 = findViewById(R.id.med3)
         mail_btn = findViewById(R.id.mail_btn)
         setting_btn = findViewById(R.id.setting_btn)
+        plus_btn = findViewById(R.id.plus_btn)
+        med2 = findViewById(R.id.med2)
         //cl_calendar_item = findViewById(R.id.cl_calendar_item)
         //tv_date_calendar_item = findViewById(R.id.tv_date_calendar_item)
 
@@ -99,6 +103,10 @@ class MainActivity : AppCompatActivity() {
         med1.setOnClickListener {
             med1.setImageResource(R.drawable.group_3)
             image.setImageResource(R.drawable.character2)
+        }
+
+        med2.setOnClickListener {
+            med2.setImageResource(R.drawable.group_3)
         }
 
         med3.setOnClickListener {
@@ -137,6 +145,7 @@ class MainActivity : AppCompatActivity() {
                 cal.time = date
 
                 println(isSelected)
+                println(cal[Calendar.DAY_OF_WEEK])
 
                 // if item is selected we return this layout items
                 // in this example. monday, wednesday and friday will have special item views and other days
@@ -208,6 +217,7 @@ class MainActivity : AppCompatActivity() {
                 time_tv1.setText("time1")
                 time_tv2.setText("time2")
                 med1.visibility = View.VISIBLE
+                med2.visibility = View.VISIBLE
                 med3.visibility = View.VISIBLE
                 super.whenSelectionChanged(isSelected, position, date)
             }
@@ -237,7 +247,7 @@ class MainActivity : AppCompatActivity() {
             //futureDaysCount = 90
             //includeCurrentDate = true
             setDates(getFutureDatesOfCurrentMonth())
-            initialPositionIndex = currentDay
+            initialPositionIndex = currentDay-1
             init()
         }
 
