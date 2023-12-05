@@ -42,9 +42,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnLeft : ImageButton
     lateinit var btnRight : ImageButton
     lateinit var main_single_row_calendar : com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
-    lateinit var cl_calendar_item : LinearLayout
-    lateinit var tv_date_calendar_item : TextView
-    lateinit var tv_day_calendar_item : TextView
     lateinit var month_tv : TextView
     lateinit var item_tv1 : TextView
     lateinit var item_tv2 : TextView
@@ -66,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn1 = findViewById<ImageButton>(R.id.btn1)
+        btn1 = findViewById(R.id.btn1)
         main_single_row_calendar = findViewById(R.id.main_single_row_calendar)
         tvDate = findViewById(R.id.tvDate)
         tvDay = findViewById(R.id.tvDay)
@@ -179,6 +176,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+
             override fun bindDataToCalendarView(
                 holder: SingleRowCalendarAdapter.CalendarViewHolder,
                 date: Date,
@@ -251,14 +249,31 @@ class MainActivity : AppCompatActivity() {
             init()
         }
 
+
         btnRight.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfNextMonth())
             month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
+            val singleRowCalendar = main_single_row_calendar.apply {
+                calendarViewManager = myCalendarViewManager
+                calendarChangesObserver = myCalendarChangesObserver
+                calendarSelectionManager = mySelectionManager
+                setDates(getFutureDatesOfCurrentMonth())
+                initialPositionIndex = 0
+                init()
+            }
         }
 
         btnLeft.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfPreviousMonth())
             month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
+            val singleRowCalendar = main_single_row_calendar.apply {
+                calendarViewManager = myCalendarViewManager
+                calendarChangesObserver = myCalendarChangesObserver
+                calendarSelectionManager = mySelectionManager
+                setDates(getFutureDatesOfCurrentMonth())
+                initialPositionIndex = 0
+                init()
+            }
         }
     }
 
