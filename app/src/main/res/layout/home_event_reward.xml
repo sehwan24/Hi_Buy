@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    android:gravity="center_horizontal"
+    android:padding="50dp">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="82dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="건국님, \n유산균 매일 먹기를 30일 성공하셨네요!\n\n보상으로 유산균 10포를 드릴게요"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="54dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="60dp"/>
+
+    <ImageView
+        android:id="@+id/frame_120"
+        android:layout_width="240dp"
+        android:layout_height="260dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/frame111"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="223dp"
+        android:layout_marginBottom="60dp"/>
+
+    <Button
+        android:id="@+id/group_1125"
+        android:layout_width="128dp"
+        android:layout_height="44dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="590dp"
+        android:text="배송 받기"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"
+        />
+
+</LinearLayout>
