@@ -41,7 +41,7 @@
         tools:layout_editor_absoluteY="590dp"
         android:text="배송 받기"
         android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button"
+        android:backgroundTint="#57BC1A"
         />
 
 </LinearLayout>

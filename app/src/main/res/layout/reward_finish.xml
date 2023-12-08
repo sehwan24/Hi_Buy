@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보상받기 완료!"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="70dp"/>
+
+    <RelativeLayout
+        android:layout_width="270dp"
+        android:layout_height="269dp">
+
+        <ImageView
+            android:id="@+id/rewardimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="70dp"
+            android:src="@drawable/wrapped_gift" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rewardimg"
+            android:layout_toRightOf="@+id/rewardimg"
+            android:src="@drawable/sparkles" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rewardimg"
+            android:src="@drawable/sparkles" />
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="홈으로 가기"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="친구에게 공유하기"/>
+</LinearLayout>
