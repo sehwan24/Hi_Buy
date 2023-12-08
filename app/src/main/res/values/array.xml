@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="itemList">
+        <item>정</item>
+        <item>포</item>
+        <item>mg</item>
+        <item>ml</item>
+    </string-array>
+
+</resources>

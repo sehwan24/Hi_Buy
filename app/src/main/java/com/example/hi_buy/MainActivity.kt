@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var med3 : ImageButton
     lateinit var med2 : ImageButton
     lateinit var plus_btn : ImageButton
+    lateinit var click_me : ImageButton
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
     private var currentDay = 0
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         setting_btn = findViewById(R.id.setting_btn)
         plus_btn = findViewById(R.id.plus_btn)
         med2 = findViewById(R.id.med2)
+        click_me = findViewById(R.id.click_me)
         //cl_calendar_item = findViewById(R.id.cl_calendar_item)
         //tv_date_calendar_item = findViewById(R.id.tv_date_calendar_item)
 
@@ -91,10 +93,19 @@ class MainActivity : AppCompatActivity() {
         time_tv1.setText("")
         time_tv2.setText("")
 
+        plus_btn.setOnClickListener {
+            val list = Intent(this, ListActivity::class.java)
+            startActivity(list)
+        }
+
 
         btn1.setOnClickListener {
             val shop = Intent(this, ShopActivity::class.java)
             startActivity(shop)
+        }
+
+        click_me.setOnClickListener {
+            setContentView(R.layout.home_reward)
         }
 
         med1.setOnClickListener {
@@ -112,6 +123,8 @@ class MainActivity : AppCompatActivity() {
             setting_btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
             mail_btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
             btn1.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
+            click_me.setImageResource(R.drawable.click_me)
+            click_me.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#41FF5F"))
         }
 
         // set current date to calendar and current month to currentMonth variable
@@ -253,7 +266,7 @@ class MainActivity : AppCompatActivity() {
         btnRight.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfNextMonth())
             month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
-            val singleRowCalendar = main_single_row_calendar.apply {
+            main_single_row_calendar.apply {
                 calendarViewManager = myCalendarViewManager
                 calendarChangesObserver = myCalendarChangesObserver
                 calendarSelectionManager = mySelectionManager
@@ -266,7 +279,7 @@ class MainActivity : AppCompatActivity() {
         btnLeft.setOnClickListener {
             singleRowCalendar.setDates(getDatesOfPreviousMonth())
             month_tv.setText(calendar[Calendar.YEAR].toString() +"년 " + (calendar[Calendar.MONTH]+1).toString() + "월")
-            val singleRowCalendar = main_single_row_calendar.apply {
+            main_single_row_calendar.apply {
                 calendarViewManager = myCalendarViewManager
                 calendarChangesObserver = myCalendarChangesObserver
                 calendarSelectionManager = mySelectionManager
