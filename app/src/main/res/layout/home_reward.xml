@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/mp12"
         android:layout_margin="0dp"
+        android:id="@+id/reward_btn"
         />
 
 

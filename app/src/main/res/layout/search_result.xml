@@ -22,14 +22,14 @@
             android:id="@+id/search_btn2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:scaleType="fitXY"
             android:src="@drawable/search_icon" />
 
         <ImageButton
             android:id="@+id/my_shop_btn2"
             android:scaleType="fitXY"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/cart_icon" />

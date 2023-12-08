@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/setting_btn"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#FAFAFA"
                 android:src="@drawable/setting"
                 />
 
@@ -40,14 +40,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mail_btn"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#FAFAFA"
                 android:src="@drawable/material_symbols_mail_outline"
                 />
 
 
             <ImageButton
                 android:id="@+id/btn1"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#FAFAFA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/carbon_shopping_bag"
@@ -58,10 +58,11 @@
         </LinearLayout>
 
         <ImageButton
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/click_me"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:layout_gravity="bottom|left"
             />
 
@@ -95,7 +96,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/arrow_back_ios_black_24dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#FAFAFA"
                 />
 
             <ImageButton
@@ -105,7 +106,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/arrow_forward_ios_black_24dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#FAFAFA"
                 />
 
 
@@ -153,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="22dp"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -202,7 +203,7 @@
                         android:id="@+id/med1"
                         android:src="@drawable/group_6"
                         android:visibility="invisible"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="#FAFAFA"
                         />
 
                     <ImageButton
@@ -212,7 +213,7 @@
                         android:id="@+id/med2"
                         android:src="@drawable/group_6"
                         android:visibility="invisible"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="#FAFAFA"
                         />
 
 
@@ -256,7 +257,7 @@
                         android:id="@+id/med3"
                         android:src="@drawable/group_6"
                         android:visibility="invisible"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="#FAFAFA"
                         />
 
 
@@ -272,7 +273,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/frame_47"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:id="@+id/plus_btn"
             />
 

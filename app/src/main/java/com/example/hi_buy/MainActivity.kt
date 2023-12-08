@@ -105,7 +105,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         click_me.setOnClickListener {
-            setContentView(R.layout.home_reward)
+            val reward = Intent(this, RewardActivity::class.java)
+            startActivity(reward)
         }
 
         med1.setOnClickListener {

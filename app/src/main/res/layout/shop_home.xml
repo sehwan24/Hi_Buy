@@ -22,14 +22,14 @@
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:scaleType="fitXY"
             android:src="@drawable/search_icon" />
 
         <ImageButton
             android:id="@+id/my_shop_btn"
             android:scaleType="fitXY"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#FAFAFA"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/cart_icon" />
@@ -52,8 +52,9 @@
                 <ImageButton
                     android:id="@+id/ad1_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="fitXY" />
+                    android:layout_height="164dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/frame93" />
 
             </LinearLayout>
 
@@ -67,7 +68,7 @@
                     android:id="@+id/recommend_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="#FAFAFA"
                     android:text="인기 상품"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
@@ -232,7 +233,7 @@
                     android:id="@+id/vitamin_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="#FAFAFA"
                     android:text="멀티 비타민"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"

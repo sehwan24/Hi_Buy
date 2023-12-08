@@ -1,0 +1,9 @@
+<!-- res/color/radio_button_text_color_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 비활성화된 상태 -->
+    <item android:state_enabled="false" android:color="#808080"/> <!-- 비활성화되었을 때의 색상 -->
+    <!-- 활성화된 상태이면서 체크된 상태 -->
+    <item android:state_enabled="true" android:state_checked="true" android:color="#FFFFFF"/> <!-- 체크되었을 때의 색상 -->
+    <!-- 나머지 활성화된 상태 -->
+    <item android:state_enabled="true" android:color="#000000"/> <!-- 클릭되지 않았을 때의 색상 -->
+</selector>
