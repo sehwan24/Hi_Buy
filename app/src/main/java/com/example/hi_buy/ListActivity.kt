@@ -31,9 +31,9 @@ class ListActivity : AppCompatActivity() {
             mList.add(mName)
             adapter.notifyDataSetChanged()
         }
-        mList.add("hi")
-        mList.add("hello")
-        mList.add("good")
+        mList.add("비타민C")
+        mList.add("오메가3")
+        mList.add("루테인")
         //리스트 길게 누를시 제거
         list.setOnItemLongClickListener { parent, view, position, id ->
             mList.removeAt(position)
