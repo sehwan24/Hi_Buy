@@ -224,10 +224,10 @@ class MainActivity : AppCompatActivity() {
             override fun whenSelectionChanged(isSelected: Boolean, position: Int, date: Date) {
                 tvDate.text = "${DateUtils.getMonthName(date)}, ${DateUtils.getDayNumber(date)} "
                 tvDay.text = DateUtils.getDayName(date)
-                item_tv1.setText("item1")
-                item_tv2.setText("item2")
-                time_tv1.setText("time1")
-                time_tv2.setText("time2")
+                item_tv1.setText("유산균")
+                item_tv2.setText("비타민")
+                time_tv1.setText("8AM")
+                time_tv2.setText("9AM")
                 med1.visibility = View.VISIBLE
                 med2.visibility = View.VISIBLE
                 med3.visibility = View.VISIBLE
